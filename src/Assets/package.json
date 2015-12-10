@@ -1,0 +1,44 @@
+{
+  "name": "solar-theme",
+  "version": "1.0.0",
+  "description": "Solar theme SCSS based library",
+  "main": "server.js",
+  "scripts": {
+    "start": "node .",
+    "prod": "webpack --config webpack-production.config.js -p"
+  },
+  "keywords": [
+    "solar",
+    "theme",
+    "scss",
+    "solar",
+    "scss"
+  ],
+  "author": "Tseegii Tselmeg <tseegii.it@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "babel-core": "^6.1.20",
+    "babel-eslint": "^4.1.5",
+    "babel-loader": "^6.1.0",
+    "copy-webpack-plugin": "^0.2.0",
+    "css-loader": "^0.22.0",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "file-loader": "^0.8.4",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.1",
+    "strip-loader": "^0.1.0",
+    "style-loader": "^0.13.0",
+    "timestamp-webpack-plugin": "^0.2.3",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.4",
+    "webpack-dev-server": "^1.12.1"
+  },
+  "dependencies": {
+    "animate.css": "^3.4.0",
+    "bootstrap-sass": "^3.3.5",
+    "font-awesome": "^4.4.0",
+    "jquery": "^2.1.4",
+    "node-waves": "^0.7.4"
+  }
+}

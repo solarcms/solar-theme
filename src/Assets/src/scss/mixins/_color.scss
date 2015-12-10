@@ -1,0 +1,32 @@
+//@mixin color-schema($bg-color: #555, $percent: 5%, $sat-percent: 5%) {
+//  background-color: saturate(darken($bg-color, $percent), $sat-percent);
+//}
+@mixin color-variant($bg-color: #555) {
+  background-color: $bg-color;
+  &.lt {
+    @include color-schema-lighten($bg-color, $color-percent, $color-percent);
+  }
+  .lt {
+    @include color-schema-lighten($bg-color, $color-percent, $color-percent);
+  }
+  &.dk {
+    @include color-schema-darken($bg-color, $color-percent, $color-percent);
+  }
+  .dk {
+    @include color-schema-darken($bg-color, $color-percent, $color-percent);
+  }
+  &.bg {
+    background-color: $bg-color !important;
+  }
+  .bg {
+    background-color: $bg-color;
+  }
+}
+
+@mixin color-schema-darken($bg-color: #555, $percent: 15%, $sat-percent:15%) {
+  background-color: saturate(darken($bg-color, $percent), $sat-percent);
+}
+
+@mixin color-schema-lighten($bg-color: #555, $percent: 15%, $sat-percent:15%) {
+  background-color: desaturate(lighten($bg-color, $percent), $sat-percent);
+}

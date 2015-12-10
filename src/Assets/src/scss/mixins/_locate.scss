@@ -1,0 +1,16 @@
+@mixin locate($axis: "both", $top: 50%, $left: 50%) {
+  position: absolute;
+  @if $axis == "y" {
+    top: $top;
+    @include translateY($top * -1);
+  }
+  @if $axis == "x" {
+    left: $left;
+    @include translateX($left * -1);
+  }
+  @if $axis == "both" {
+    left: $left;
+    top: $top;
+    @include translate($left * -1, $top * -1);
+  }
+}

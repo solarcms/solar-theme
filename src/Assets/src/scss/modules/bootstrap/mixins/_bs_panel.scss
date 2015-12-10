@@ -1,0 +1,11 @@
+@mixin panel-wariant($bg-color, $name){
+  $color: mix($bg-color, #fff, 15%);
+  .panel-#{name}{
+  border-color: darken($color, 5%);
+  > .panel-heading{
+    color: darken($bg-color, 20%);
+    background-color: $color;
+    border-color: darken($color, 5%);
+  }
+}
+}

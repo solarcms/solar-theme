@@ -1,0 +1,1 @@
+Solar CMS - default theme

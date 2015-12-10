@@ -1,0 +1,140 @@
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-light {
+  @include color-variant($light);
+}
+
+.bg-dark {
+  color: $dark-white;
+  @include color-variant($dark);
+}
+
+.bg-primary {
+  color: $dark-white;
+  @include color-variant($primary);
+}
+
+.bg-success {
+  color: $dark-white;
+  @include color-variant($success);
+}
+
+.bg-info {
+  color: $dark-white;
+  @include color-variant($info);
+}
+
+.bg-warning {
+  color: $dark-white;
+  @include color-variant($warning);
+}
+
+.bg-danger {
+  color: $dark-white;
+  @include color-variant($danger);
+}
+
+.bg-accent {
+  color: $dark-white;
+  @include color-variant($accent);
+}
+
+@include text-variant($primary, primary);
+@include text-variant($info, info);
+@include text-variant($success, success);
+@include text-variant($warning, warning);
+@include text-variant($danger, danger);
+@include text-variant($accent, accent);
+@include text-variant($dark, dark);
+
+.text-white {
+  color: $full-white;
+}
+
+.text-white-lt {
+  color: $light-white;
+}
+
+.text-white-dk {
+  color: $dark-white;
+}
+
+.text-black {
+  color: $full-black;
+}
+
+.text-black-lt {
+  color: $light-black;
+}
+
+.text-black-dk {
+  color: $dark-black;
+}
+
+.text-muted {
+  color: inherit;
+  opacity: 0.75;
+}
+
+.text-muted-dk {
+  color: inherit;
+  opacity: 0.5;
+}
+
+.text-muted-lt {
+  color: inherit;
+  opacity: 0.25;
+}
+
+.text-color {
+  color: $text-color;
+}
+
+.bg-big {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: inherit;
+    border: inherit;
+  }
+}
+
+.bg-white-overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.bg-black-overlay {
+  background-color: rgba(32, 43, 54, 0.8);
+}
+
+.no-bg {
+  background-color: transparent;
+  color: inherit;
+}
+
+@media (min-width: 768px) {
+  .bg-auto {
+    &:before {
+      content: "";
+      position: absolute;
+      width: inherit;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+      background-color: inherit;
+      border: inherit;
+    }
+    &.b-l:before {
+      margin-left: -1px;
+    }
+    &.b-r:before {
+      margin-right: -1px;
+    }
+  }
+}

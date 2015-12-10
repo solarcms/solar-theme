@@ -1,0 +1,14 @@
+{
+    "name": "solarcms/solar-theme",
+    "description": "Solar CMS template module",
+    "type": "template",
+    "license": "ISP",
+    "authors": [
+        {
+            "name": "n0m4dz",
+            "email": "tseegii.it@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

@@ -1,0 +1,27 @@
+@mixin text-variant($bg-color, $name) {
+  a.bg-#{name}:hover {
+    background-color: darken($bg-color, $color-percent);
+  }
+  a.text-#{name}:hover {
+    color: darken($bg-color, $color-percent);
+  }
+  .text-#{name} {
+    color: $bg-color;
+  }
+  .text-#{name}-lt {
+    color: lighten($bg-color, $color-percent);
+  }
+  .text-#{name}-dk {
+    color: darken($bg-color, $color-percent);
+  }
+}
+
+@mixin text-size($min: 8) {
+  $i: $min;
+  @while $i <= 100 {
+    .s#{$i} {
+      font-size: #{$i}px !important;
+    }
+    $i: $i + 1;
+  }
+}

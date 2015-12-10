@@ -1,4 +1,4 @@
-.modal.fade .left {
+.modal .left, .modal.fade .left {
   -webkit-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
   -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -7,7 +7,7 @@
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.modal.fade .right {
+.modal .right, .modal.fade .right {
   -webkit-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
   -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -16,7 +16,7 @@
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.modal.fade .top {
+.modal .top, .modal.fade .top {
   -webkit-transform: translate3d(0, -100%, 0);
   transform: translate3d(0, -100%, 0);
   -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -25,7 +25,7 @@
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.modal.fade .bottom {
+.modal .bottom, .modal.fade .bottom {
   -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0);
   -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);

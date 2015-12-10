@@ -32,7 +32,7 @@ module.exports = {
     output: {
         path: webpackDirs.pathDir,
         filename: 'js/[name].js',
-        publicPath: webpackDirs.pathDir
+        publicPath: '../'
     },
 
 
@@ -58,10 +58,7 @@ module.exports = {
         //Copy assets
         new CopyPlugin([
             // File
-            {from: './src/views/index.html', to: 'index.html', toType: 'file'},
-
-            // Directory
-            {from: './src/images', to: 'images', toType: 'dir'}
+           // {from: './src/views/index.html', to: 'index.html', toType: 'file'},
         ]),
 
         //Timestamp for webpack
@@ -70,7 +67,7 @@ module.exports = {
             filename: 'webpack.timestamp.log'
         }),
 
-        new Webpack.BannerPlugin("************************************\n Solar Content Management System \n************************************\n")
+        new Webpack.BannerPlugin("*************************************\n   Solar Content Management System \n*************************************\n")
     ],
 
     module: {
@@ -88,10 +85,16 @@ module.exports = {
                 loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!sass')
             },
 
-            // FONTS & IMAGES
+            // IMAGES
             {
-                test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.png($|\?)|\.jpg($|\?)|\.gif($|\?)|\.bmp($|\?)|\.svg($|\?)/,
-                loader: 'url-loader?limit=10000'
+                test: /\.png($|\?)|\.jpg($|\?)|\.gif($|\?)|\.bmp($|\?)|\.svg($|\?)/,
+                loader: 'url-loader?limit=10000&name=images/[name].[ext]'
+            },
+
+            // FONTS
+            {
+                test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
+                loader: 'url-loader?limit=10000&name=fonts/[name].[ext]'
             },
         ]
     },

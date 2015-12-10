@@ -6,7 +6,7 @@
     <meta name="description" content="Solar content management system"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <link rel="stylesheet" href="{{ URL::asset('shared/css/dependencies.css') }}" type="text/css"/>
-    <link rel="stylesheet" href="{{ URL::asset('shared/css/bundle.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ URL::asset('shared/css/shared.css') }}" type="text/css"/>
 </head>
 <body>
 <div class="app">
@@ -232,6 +232,6 @@
 </div>
 
 <script src="{{ URL::asset('shared/js/dependencies.js')}}"></script>
-<script src="{{ URL::asset('shared/js/bundle.js')}}"></script>
+<script src="{{ URL::asset('shared/js/shared.js')}}"></script>
 </body>
 </html>

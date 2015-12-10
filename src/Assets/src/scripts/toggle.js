@@ -2,9 +2,7 @@
  * Created by n0m4dz on 11/12/15.
  */
 +function ($) {
-
     $(function(){
-
         $(document).on('click', '[ui-toggle-class]', function (e) {
             e.preventDefault();
             var $this = $(e.target);

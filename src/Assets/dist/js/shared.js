@@ -4,4 +4,244 @@
  * *************************************
  * 
  */
-webpackJsonp([1],[function(t,n,e){t.exports=e(2)},,function(t,n,e){e(12),e(5),e(6),e(7),e(4),e(9),e(3)},function(t,n,e){(function(t){+function(t){t(function(){var n=!!navigator.userAgent.match(/MSIE/i)||!!navigator.userAgent.match(/Trident.*rv:11\./);n&&t("html").addClass("ie");var e=window.navigator.userAgent||window.navigator.vendor||window.opera;/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/.test(e)&&t("html").addClass("smart")})}(t)}).call(n,e(1))},function(t,n,e){(function(t){+function(t){t(function(){t(document).on("blur","input, textarea",function(n){t(this).val()?t(this).addClass("has-value"):t(this).removeClass("has-value")})})}(t)}).call(n,e(1))},function(t,n,e){(function(t){var n=n||{};!function(t,n,e){"use strict";var i=[],a=!1,o=t.Deferred();e.load=function(n){return n=t.isArray(n)?n:n.split(/\s+/),a||(a=o.promise()),t.each(n,function(t,n){a=a.then(function(){return n.indexOf(".css")>=0?c(n):r(n)})}),o.resolve(),a};var r=function(e){if(i[e])return i[e].promise();var a=t.Deferred(),o=n.createElement("script");return o.src=e,o.onload=function(t){a.resolve(t)},o.onerror=function(t){a.reject(t)},n.body.appendChild(o),i[e]=a,a.promise()},c=function(e){if(i[e])return i[e].promise();var a=t.Deferred(),o=n.createElement("link");return o.rel="stylesheet",o.type="text/css",o.href=e,o.onload=function(t){a.resolve(t)},o.onerror=function(t){a.reject(t)},n.head.appendChild(o),i[e]=a,a.promise()}}(t,document,n)}).call(n,e(1))},function(t,n,e){(function(t){+function(t){t(function(){t(document).on("click","[ui-nav] a",function(n){var e,i=t(n.target);i.is("a")||(i=i.closest("a")),e=i.parent().siblings(".active"),e&&e.toggleClass("active").find("> ul:visible").slideUp(200),i.parent().hasClass("active")&&i.next().slideUp(200)||i.next().slideDown(200),i.parent().toggleClass("active"),i.next().is("ul")&&n.preventDefault()})})}(t)}).call(n,e(1))},function(t,n,e){(function(t){+function(t){t(function(){t(document).on("click","[ui-toggle-class]",function(n){n.preventDefault();var e=t(n.target);e.attr("ui-toggle-class")||(e=e.closest("[ui-toggle-class]"));var i=e.attr("ui-toggle-class").split(","),a=e.attr("target")&&e.attr("target").split(",")||Array(e),o=0;t.each(i,function(n,e){var r=a[a.length&&o];t(r).toggleClass(i[n]),o++}),e.toggleClass("active")})})}(t)}).call(n,e(1))},,function(t,n,e){(function(t){+function(t){t(function(){Waves.attach(".btn"),Waves.attach("[md-ink-ripple]"),Waves.init()})}(t)}).call(n,e(1))},,,function(t,n){}]);
+webpackJsonp([1],[
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(8);
+
+
+/***/ },
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Created by n0m4dz on 11/9/15.
+	 */
+
+	//SCSS
+	__webpack_require__(9);
+
+	//SCRIPTS
+	__webpack_require__(10);
+	__webpack_require__(11);
+	__webpack_require__(12);
+	__webpack_require__(13);
+	__webpack_require__(14);
+	__webpack_require__(15);
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(jQuery) {/**
+	 * Created by n0m4dz on 11/12/15.
+	 */
+
+	/**
+	 * 0.1.0
+	 * Deferred load js/css file, used for ui-jq.js and Lazy Loading.
+	 *
+	 */
+	var uiLoad = uiLoad || {};
+
+	(function ($, $document, uiLoad) {
+	    "use strict";
+
+	    var loaded = [],
+	        promise = false,
+	        deferred = $.Deferred();
+
+	    /**
+	     * Chain loads the given sources
+	     * @param srcs array, script or css
+	     * @returns {*} Promise that will be resolved once the sources has been loaded.
+	     */
+	    uiLoad.load = function (srcs) {
+	        srcs = $.isArray(srcs) ? srcs : srcs.split(/\s+/);
+	        if (!promise) {
+	            promise = deferred.promise();
+	        }
+
+	        $.each(srcs, function (index, src) {
+	            promise = promise.then(function () {
+	                return src.indexOf('.css') >= 0 ? loadCSS(src) : loadScript(src);
+	            });
+	        });
+	        deferred.resolve();
+	        return promise;
+	    };
+
+	    /**
+	     * Dynamically loads the given script
+	     * @param src The url of the script to load dynamically
+	     * @returns {*} Promise that will be resolved once the script has been loaded.
+	     */
+	    var loadScript = function (src) {
+	        if (loaded[src]) return loaded[src].promise();
+
+	        var deferred = $.Deferred();
+	        var script = $document.createElement('script');
+	        script.src = src;
+	        script.onload = function (e) {
+	            deferred.resolve(e);
+	        };
+	        script.onerror = function (e) {
+	            deferred.reject(e);
+	        };
+	        $document.body.appendChild(script);
+	        loaded[src] = deferred;
+
+	        return deferred.promise();
+	    };
+
+	    /**
+	     * Dynamically loads the given CSS file
+	     * @param href The url of the CSS to load dynamically
+	     * @returns {*} Promise that will be resolved once the CSS file has been loaded.
+	     */
+	    var loadCSS = function (href) {
+	        if (loaded[href]) return loaded[href].promise();
+
+	        var deferred = $.Deferred();
+	        var style = $document.createElement('link');
+	        style.rel = 'stylesheet';
+	        style.type = 'text/css';
+	        style.href = href;
+	        style.onload = function (e) {
+	            deferred.resolve(e);
+	        };
+	        style.onerror = function (e) {
+	            deferred.reject(e);
+	        };
+	        $document.head.appendChild(style);
+	        loaded[href] = deferred;
+
+	        return deferred.promise();
+	    };
+	})(jQuery, document, uiLoad);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(jQuery) {/**
+	 * Created by n0m4dz on 11/12/15.
+	 */
+	+(function ($) {
+
+	    $(function () {
+
+	        // nav
+	        $(document).on('click', '[ui-nav] a', function (e) {
+	            var $this = $(e.target),
+	                $active;
+	            $this.is('a') || ($this = $this.closest('a'));
+
+	            $active = $this.parent().siblings(".active");
+	            $active && $active.toggleClass('active').find('> ul:visible').slideUp(200);
+
+	            $this.parent().hasClass('active') && $this.next().slideUp(200) || $this.next().slideDown(200);
+	            $this.parent().toggleClass('active');
+
+	            $this.next().is('ul') && e.preventDefault();
+	        });
+	    });
+	})(jQuery);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(jQuery) {/**
+	 * Created by n0m4dz on 11/12/15.
+	 */
+	+(function ($) {
+	    $(function () {
+	        $(document).on('click', '[ui-toggle-class]', function (e) {
+	            e.preventDefault();
+	            var $this = $(e.target);
+	            $this.attr('ui-toggle-class') || ($this = $this.closest('[ui-toggle-class]'));
+	            var classes = $this.attr('ui-toggle-class').split(','),
+	                targets = $this.attr('target') && $this.attr('target').split(',') || Array($this),
+	                key = 0;
+	            $.each(classes, function (index, value) {
+	                var target = targets[targets.length && key];
+	                $(target).toggleClass(classes[index]);
+	                key++;
+	            });
+	            $this.toggleClass('active');
+	        });
+	    });
+	})(jQuery);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(jQuery) {/**
+	 * Created by n0m4dz on 11/12/15.
+	 */
+	+(function ($) {
+	    $(function () {
+	        $(document).on('blur', 'input, textarea', function (e) {
+	            $(this).val() ? $(this).addClass('has-value') : $(this).removeClass('has-value');
+	        });
+	    });
+	})(jQuery);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(jQuery) {/**
+	 * Created by n0m4dz on 11/12/15.
+	 */
+	+(function ($) {
+	    $(function () {
+	        Waves.attach('.btn');
+	        Waves.attach('[md-ink-ripple]');
+	        Waves.init();
+	    });
+	})(jQuery);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by n0m4dz on 11/12/15.
+	 */
+	//+function ($) {
+	//    $(function () {
+	//        // Checks for ie
+	//        var isIE = !!navigator.userAgent.match(/MSIE/i) || !!navigator.userAgent.match(/Trident.*rv:11\./);
+	//        isIE && $('html').addClass('ie');
+	//
+	//        // Checks for iOs, Android, Blackberry, Opera Mini, and Windows mobile devices
+	//        var ua = window['navigator']['userAgent'] || window['navigator']['vendor'] || window['opera'];
+	//        (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(ua) && $('html').addClass('smart');
+	//
+	//    });
+	//}(jQuery);
+
+/***/ }
+]);

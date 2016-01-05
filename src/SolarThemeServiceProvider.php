@@ -6,11 +6,11 @@
  * Time: 11:31 AM
  */
 
-namespace Solarcms\SolarTheme;
+namespace Solarcms\XTheme;
 
 use Illuminate\Support\ServiceProvider as ServiceProvider;
 
-class SolarThemeServiceProvider extends ServiceProvider
+class XThemeServiceProvider extends ServiceProvider
 {
 
     public function boot()
